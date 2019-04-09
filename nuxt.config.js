@@ -8,12 +8,26 @@ export default {
    */
   head: {
     title: pkg.name,
+    htmlAttrs: {
+      lang: 'ja'
+    },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: pkg.description }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href:
+          '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'
+      },
+      {
+        rel: 'stylesheet',
+        href: '//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css'
+      }
+    ]
   },
 
   /*
@@ -29,7 +43,11 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['~/plugins/auth0.js'],
+  auth0: {
+    domain: 'dev-sbpqbhzt.auth0.com',
+    clientID: 'NQsFUhyaDA4xVTEncHdtbKMKSYag49nE'
+  },
 
   /*
    ** Nuxt.js modules
